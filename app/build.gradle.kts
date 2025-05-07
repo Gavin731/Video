@@ -7,6 +7,7 @@ android {
     namespace = "com.film.television"
     compileSdk = 35
 
+    
     defaultConfig {
         applicationId = "com.film.television"
         minSdk = 24
