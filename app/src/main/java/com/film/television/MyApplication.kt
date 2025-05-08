@@ -26,7 +26,7 @@ class MyApplication : Application() {
                 )
             }
         }
-        AdvertisementManager.getInstance().init(this, "5670955", getString(R.string.app_name));
+        AdvertisementManager.getInstance().init(this, "5558135", getString(R.string.app_name));
         AdvertisementManager.getInstance().initConfig();
     }
 
