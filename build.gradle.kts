@@ -11,6 +11,7 @@ buildscript {
         maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         mavenCentral()
         google()
+        mavenLocal()  // 添加本地 Maven 仓库
     }
     dependencies {
         //classpath("com.android.tools.build:gradle:8.7.3") // 改为支持的版本
@@ -22,5 +23,6 @@ allprojects {
 //        maven { url = uri("https://maven.aliyun.com/repository/google") }
 //        mavenCentral()
 //        google()
+//        mavenLocal()  // 添加本地 Maven 仓库
     }
 }
