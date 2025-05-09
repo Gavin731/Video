@@ -44,7 +44,7 @@ public class TestMainActivity extends AppCompatActivity {
         findViewById(R.id.show_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdvertisementManager.getInstance().showInterstitialAd(TestMainActivity.this, "959935639");
+                AdvertisementManager.getInstance().showInterstitialAd(TestMainActivity.this, "102935580");
             }
         });
         FrameLayout splashContainer = findViewById(R.id.splashContainer);
@@ -52,7 +52,7 @@ public class TestMainActivity extends AppCompatActivity {
         findViewById(R.id.show_kp_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdvertisementManager.getInstance().showOpenScreenAd(TestMainActivity.this, "889382232", splashContainer, 1000, 1920, new OpenScreenAdCallBack() {
+                AdvertisementManager.getInstance().showOpenScreenAd(TestMainActivity.this, "102936358", splashContainer, 1000, 1920, new OpenScreenAdCallBack() {
                     @Override
                     public void onAdClose() {
 //                        LogUtils.i("广告关闭");
@@ -64,13 +64,13 @@ public class TestMainActivity extends AppCompatActivity {
         findViewById(R.id.show_info_image_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdvertisementManager.getInstance().showInfoFlowAd(TestMainActivity.this, "958298251", infoContainer, 800, 400);
+                AdvertisementManager.getInstance().showInfoFlowAd(TestMainActivity.this, "102934170", infoContainer, 800, 400);
             }
         });
         findViewById(R.id.http_request).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdvertisementManager.getInstance().showRewardAd(TestMainActivity.this, "958298417", new RewardAdCallBack() {
+                AdvertisementManager.getInstance().showRewardAd(TestMainActivity.this, "102935581", new RewardAdCallBack() {
                     @Override
                     public void onAdClose() {
 
