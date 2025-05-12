@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import com.common.wheel.admanager.AdvertisementManager;
 import com.common.wheel.admanager.OpenScreenAdCallBack;
 import com.common.wheel.admanager.RewardAdCallBack;
+import com.common.wheel.util.DeviceUtil;
 import com.film.television.R;
 
 public class TestMainActivity extends AppCompatActivity {
@@ -28,6 +30,15 @@ public class TestMainActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
         }
+        boolean isRoot = DeviceUtil.isRoot();
+        boolean isAdb = DeviceUtil.isAdb(this);
+        boolean isDl = DeviceUtil.isDl(this);
+        boolean isVpn = DeviceUtil.isVpnActive(this);
+
+        String text = "是否开启root:"+isRoot+"，是否开始adb:"+isAdb+"，是否开始代理:"+isDl+"，是否开始Vpn:"+isVpn;
+
+        Button init_ad = (Button)findViewById(R.id.init_ad);
+        init_ad.setText(text);
 
         findViewById(R.id.init_ad).setOnClickListener(new View.OnClickListener() {
             @Override
