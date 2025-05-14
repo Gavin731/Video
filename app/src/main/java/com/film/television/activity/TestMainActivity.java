@@ -3,6 +3,7 @@ package com.film.television.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -12,6 +13,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.common.wheel.admanager.AdvertisementManager;
+import com.common.wheel.admanager.InfoAdCallBack;
 import com.common.wheel.admanager.OpenScreenAdCallBack;
 import com.common.wheel.admanager.RewardAdCallBack;
 import com.common.wheel.util.DeviceUtil;
@@ -55,7 +57,32 @@ public class TestMainActivity extends AppCompatActivity {
         findViewById(R.id.show_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdvertisementManager.getInstance().showInterstitialAd(TestMainActivity.this, "102935580");
+                AdvertisementManager.getInstance().showInterstitialAd(TestMainActivity.this, "102935580", new InfoAdCallBack() {
+                    @Override
+                    public void onAdShow() {
+                        Log.i("","页面提示：插屏广告已展示");
+                    }
+
+                    @Override
+                    public void onAdVideoBarClick() {
+                        Log.i("","页面提示：插屏广告被点击");
+                    }
+
+                    @Override
+                    public void onAdClose() {
+                        Log.i("","页面提示：插屏广告被关闭");
+                    }
+
+                    @Override
+                    public void onVideoComplete() {
+
+                    }
+
+                    @Override
+                    public void onSkippedVideo() {
+
+                    }
+                });
             }
         });
         FrameLayout splashContainer = findViewById(R.id.splashContainer);
