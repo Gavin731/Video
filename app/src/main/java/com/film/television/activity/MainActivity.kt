@@ -6,6 +6,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
+import android.os.Handler
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -13,6 +15,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -33,9 +36,11 @@ import com.film.television.fragment.CategoryFragment
 import com.film.television.fragment.HomeFragment
 import com.film.television.fragment.MineFragment
 import com.film.television.isTeenModeEnabled
+import com.film.television.repository.ContentRepository
 import com.film.television.showShortToast
 import com.film.television.utils.Constants
 import com.film.television.utils.DataStoreUtil
+import com.film.television.utils.DeviceUtil
 import com.film.television.utils.Formatter
 import com.film.television.utils.MyClickableSpan
 import com.film.television.utils.RouteUtil
@@ -113,6 +118,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
             }
         })
+
+        DeviceUtil.getOaid(this) { oaid ->
+
+            runOnUiThread {
+                findViewById<TextView>(R.id.tv_oaid).setText(oaid)
+            }
+        }
     }
 
 

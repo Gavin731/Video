@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -19,6 +20,7 @@ import com.common.wheel.admanager.OpenScreenAdCallBack;
 import com.common.wheel.admanager.RewardAdCallBack;
 import com.common.wheel.util.DeviceUtil;
 import com.film.television.R;
+import com.orhanobut.hawk.Hawk;
 
 public class TestMainActivity extends AppCompatActivity {
 
@@ -42,6 +44,14 @@ public class TestMainActivity extends AppCompatActivity {
 
         Button init_ad = (Button)findViewById(R.id.init_ad);
         init_ad.setText(text);
+        TextView tv_content = (TextView)findViewById(R.id.tv_content);
+
+
+        var interstitial_perss_ad_config = Hawk.get("interstitial_perss_ad_config", false);
+        var interstitial_perss_ad_config_value = Hawk.get("interstitial_perss_ad_config_value");
+        var perss_img_url = Hawk.get("perss_img_url");
+
+        tv_content.setText(interstitial_perss_ad_config + " ====" + interstitial_perss_ad_config_value + "==="+perss_img_url);
 
         findViewById(R.id.init_ad).setOnClickListener(new View.OnClickListener() {
             @Override
